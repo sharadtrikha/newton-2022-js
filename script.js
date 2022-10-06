@@ -112,12 +112,44 @@
 // console.log(obj);
 
 
+// printClassName();
+
+// function printClassName() {
+//     console.log(className);
+// }
+
+// var className = "newton";
 
 
-printClassName();
+// function dummyFn() {
 
-function printClassName() {
-    console.log(className);
+//     if(true){
+//         var dummy = 20;
+//     }
+   
+
+//     console.log(dummy);
+//     // -> dummy variable will be accessible here. Why ? -> its in Function scope
+//     // at this point...dummy variable is still accessible because it is FUNCTION SCOPED
+// }
+
+// function dummyFn2() {
+
+//     if(true) {
+//         let dummy2 = 30;
+//     }
+
+
+//     console.log(dummy2);
+//     // -> dummy variable will be accessible here. Why ? 
+// }
+
+// dummyFn();
+// dummyFn2();
+
+
+switch() {
+    case 1:
+        ret
 }
 
-var className = "newton";

@@ -414,3 +414,145 @@ int arr[];
 ---------------
 
 Hoisting :
+
+Ability to access variables/functions even before their declaration.
+Internally, there is no magic. This is how JS Execution Context works and due to which, this kind of phenomenon is seen.
+
+-----------------
+
+ES6 Variable Constructs : (Es6 ~ Es2015 ~ features introduced in 2015 in JS )
+
+let, const ->
+
+Both keywords are used for declaring variables.
+
+let -> 
+
+var title = "sharad";
+
+vs 
+
+let title = "sharad";
+
+Difference ?
+w.r.t SCOPE .
+
+var is FUNCTION SCOPED whereas let is BLOCK SCOPED.
+
+FUNCTION SCOPED -> anything defined inside "function" keyword will be visible in that 
+                    function only.
+
+Block Scoped -> anything defined inside blocks i.e. opening block{ and closing block }.
+                it will be visible inside these brackets only. 
+
+
+const ->
+
+Its behaviour is exactly same as let, only diff. being -> it cannot be reassigned.
+
+Any implications w.r.t HOISTING ?
+
+var -> variables declared with var are hoisted. i.e. it can be accessed before declaration
+
+let, const -> looks like variables declared with var are not hoisted.But in reality,
+                JS works the same (i.e. Execution context - memory allocation phase happens for these variables also). That means memory is allocated to 
+                these variables TOO! but they still cannot be accessed due to TDZ 
+                (Temporal Dead Zone)
+
+
+-----------------------------------------
+
+Loops : (already taught/students aware)
+
+1. while
+2. do...while
+3. for 
+4. switch case 
+5. if... else
+6. if ...else if...else
+7. break continue
+
+
+--------------------------------------------
+
+parseInt/parseFloat
+
+parseInt ->
+
+Number("23sharad") -> NaN (not a number)
+parseInt("23sharad") -> 23
+
+note :
+
+parseInt("sharad25") -> NaN 
+i.e. only when digits are present in the begining, it is able to extract.
+
+
+Number System -
+
+ 010111
+ 2847
+
+ 2847 -> 10
+ 
+parseFloat -> 
+Same rules as parseInt, only parsing changes to float.
+
+
+---------------------------------------------------
+
+
+OBJECTS :
+
+var obj = {
+    KEY: VALUE
+}
+
+let obj = {
+    KEY: VALUE
+}
+
+const obj = {
+    KEY: VALUE
+}
+
+here, KEY can be string or SYMBOL
+whereas value can be anything
+
+Also, KEY needs to be unique.
+
+let obj = {
+    title: "Sharad",
+    age: 28
+}
+
+How to Access - 
+
+Dot Notation - .
+
+Bracket notation - []
+
+
+Bracket preferred/only option when ->
+
+There is a space between Key names
+When we want to access some values of Object with dynamic KEYs
+
+
+Delete any property of Object :
+
+delete <OBJECT_NAME>[KEY_NAME]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
