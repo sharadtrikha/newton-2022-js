@@ -76,7 +76,7 @@ var obj = new Object();
 
 Using Constructor method :
 
-TBD
+Discussed on 6th oct.
 
 
 
@@ -543,16 +543,135 @@ Delete any property of Object :
 
 delete <OBJECT_NAME>[KEY_NAME]
 
+------------------------------------------
+
+Shorthand syntax :
+
+let obj = {
+    title: "sharad"
+}
+
+OR
+
+let title1 = "sharad";
+
+let obj = {
+    title: title1
+}
+
+OR
+
+let title = "sharad";
+
+let obj = {
+    title
+}
+
+-----------------------------------------
+
+let person1 = {
+    name: "Sharad",
+    age: 28,
+}
+
+let person2 = {
+    name: "Ritesh",
+    age: 32
+}
+
+let person3 = {
+    name: "Akhil",
+    age: 43
+}
+
+let person4 = {
+    name: "Tina",
+    age: 34
+}
+
+
+function Person(name,age) {
+    this.name = name;
+    this.age = age;
+}
+
+
+
+let person1 = new Person("Sharad", 28);
+
+
+
+new -> 
+
+    Creates object  ->  {} 
+    Points "this" to newly created object  -> this = {};
+    Returns newly created object
+
+Whenever inside the function, we want to fill certain details in the newly
+created object. We can use "this" keyword for that.
 
 
 
 
 
 
+here, new -> creates new object and assigns that newly created object to THIS variable
+            and it returns newly created object.
+
+    this -> it acts as a placeholder variable name for this newly created object 
+
+    this keyword always point to some Entity of JS.
+    example : globally, it will point to WINDOW OBJECT.
+                creating objects via FUNCTION CONSTRUCTOR, this points to newly created object.
 
 
+----------------------------------------------
+
+Symbol -
+
+primitive type.
+used to generate unique values.
+
+Syntax :
+
+Symbol(<NAME_DESCRIPTOR>)
+
+even if NAME_DESCRIPTOR is same, then, also Symbol constructor will return different/
+unique Symbol value.
+
+Symobl('sharad') -> returns Symbol value or Symbol. (which is always unique).
+
+Usecase :
+
+Primarily used as KEYS of objects, since KEYS always have to be unqiue. 
+Hence, creating KEYS of object with Symbol instead of String will help avoid KEY 
+DUPLICATION.
+
+Note :
+
+In order to avoid uniqueness i.e. if NAME_DESCRIPTOR is same, then, Symbol value
+should also be the same! -> Symbol.for(<NAME_DESCRIPTOR>)
 
 
+-----------------------------------------------
+
+Checking if key is present on Object or not ?
 
 
+in keyword :
 
+<KEY_NAME> in <OBJECT_NAME>
+
+hasOwnProperty :
+
+<OBJECT>.hasOwnProperty(<KEY_NAME>)
+
+------------------------------------------------
+
+Methods :
+
+let obj = {
+    title: "Sharad",
+    age: 29,
+    showTitle: function() {}
+}

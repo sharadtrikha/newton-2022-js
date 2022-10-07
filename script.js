@@ -148,8 +148,30 @@
 // dummyFn2();
 
 
-switch() {
-    case 1:
-        ret
-}
 
+// Create objects via Constructor Function
+// console.log("Global section in js file ...");
+// console.log(this);
+// console.log("Global section in js file ...");
+// function Person(name,age) {
+//     console.log("Inside function constructor ....");
+//     console.log(this);
+//     this.name = name;
+//     this.age = age;
+// }
+
+
+// let person1 = new Person("Sharad", 28);
+// let person2 = new Person("Ankit", 22);
+// console.log(person1);
+// console.log(person2);
+
+const title = Symbol("sharad");
+const title2 = Symbol("sharad");
+console.log(title);
+console.log(title2);
+
+console.log(title === title2);
+
+
+let rollno = Symbol();
