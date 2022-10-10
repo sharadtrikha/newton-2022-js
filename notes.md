@@ -670,8 +670,97 @@ hasOwnProperty :
 
 Methods :
 
+Syntax 1: 
 let obj = {
     title: "Sharad",
     age: 29,
-    showTitle: function() {}
+    showTitle: function() {
+        console.log("Hi. this is a function");
+    }
 }
+
+syntax 2:
+let obj = {
+    title: "Sharad",
+    age: 29,
+    showTitle() {
+        console.log("Hi. this is a function");
+    }
+}
+
+Getters & Setters :
+
+Any method inside object can be termed as getter or setter 
+via keywords "get" and "set".
+
+While calling these getter/setter methods, () should not be used.
+
+let person = {
+    title: "Sharad",
+
+    get getTitle() {
+        // can do anything but generally used to fetch object properties
+        return this.title;
+    },
+
+    set setTitle(name) {
+        this.title = name;
+    }
+}
+
+person.setTitle = "Ankit";
+
+
+-----------------------------------------------
+
+Loops :
+
+for 
+while
+do..while
+
+for..in
+for..of
+
+
+-----------------------------
+
+DOM (Document object model) :
+
+Interface/bridge between js and html/css.
+
+Whole document (i.e. html page) represented in the form of Js Object.
+
+Object is available globally and named as "document".
+It is a part of global window object also. (window.document).
+
+Now,
+Any JS Object consists of properties and methods.
+
+Under document object, we will use certain methods to interact 
+with our html page.
+
+1. getElementById -> Input is <ID_NAME> -> Output is HTMLELEMENT is found and null if no html element with given id is found
+
+
+2. getElementsByClassName -> Input is <CLASSNAME> -> 
+Output is -> HTMLCollectionOf<Element>
+
+3. getElementsByTagName -> Input is <TAG_NAME> -> 
+Output is -> HTMLCollectionOf<Element>
+
+4. querySelector -> Input is <CSS_SELECTOR> -> Output is -> <Element> or null
+
+Note : querySelector always returns single element, if more than
+one element matchesm, then, element that comes first, will be returned by this method. (TOP to Bottom manner).
+
+5. querySelectorAll -> Input is <CSS_SELECTOR> -> Output is -> NodeListOf<Element> or null
+
+All the above methods of document object are for -> 
+to get hold of particular html element.
+
+This is similar to CSS Selectors where we used to catch hold of
+particular html elements.
+eg : ID selector (#<ID>), Class selector (.<CLASSNAME>),
+Tag selector (<TAG_NAME>).
+

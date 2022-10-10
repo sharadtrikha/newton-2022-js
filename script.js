@@ -166,12 +166,86 @@
 // console.log(person1);
 // console.log(person2);
 
-const title = Symbol("sharad");
-const title2 = Symbol("sharad");
-console.log(title);
-console.log(title2);
+// const title = Symbol("sharad");
+// const title2 = Symbol("sharad");
+// console.log(title);
+// console.log(title2);
 
-console.log(title === title2);
+// console.log(title === title2);
 
 
-let rollno = Symbol();
+// let rollno = Symbol();
+
+// let obj = {
+//     title: "Sharad", // property 
+//     age: 29, // property
+//     // showTitle: function() { // method
+//     //     console.log("Hi. this is a function");
+//     //     console.log(this.title);
+//     // }
+//     // showTitle() {
+//     //     console.log(this.title);
+//     // }
+// }
+
+// obj.showTitle();
+
+// let person = {
+//     title: "Sharad",
+
+//     get getTitle() {
+//         // can do anything but generally used to fetch object properties
+//         return this.title;
+//     },
+
+//     set setTitle(name) {
+//         this.title = name;
+//     }
+// }
+
+// const title = person.getTitle;
+// console.log(title);
+
+// console.log(person);
+// person.setTitle = "Ankit";
+// console.log(person);
+
+
+let obj = {
+    title: "sharad",
+    age: 28,
+    isNew: false
+}
+
+// for(let element in obj) {
+//     // console.log(element);
+//     console.log(obj[element]);
+// }
+
+// const listOfAllKeys = Object.keys(obj);
+// const listOfAllValues = Object.values(obj);
+// const listofKeysAndValues = Object.entries(obj);
+// console.log(listOfAllKeys);
+// console.log(listOfAllValues);
+// console.log(listofKeysAndValues);
+
+//const element = document.getElementById("dummy");
+// const element = document.getElementsByClassName("dummy-class");
+// const element = document.getElementsByTagName("p");
+// const element = document.querySelector("p");
+// const element = document.querySelector("p .dummy-class #dummy ")
+// const element = document.querySelector("body");
+// element.style.backgroundColor = "blue";
+// element.style.padding = "20px 10px 30px 40px";
+// h1Element.classList.remove("title");
+// h1Element.classList.toggle("title");
+const h1Element = document.querySelector("h1");
+h1Element.classList.add("title");
+h1Element.style.border = "10px solid red";
+const text = h1Element.innerText;
+console.log(text);
+
+//h1Element.innerHTML = "<span>Hey im span</span>";
+h1Element.innerText = "Hi Sharad!";
+h1Element.setAttribute("id", "sharad");
+h1Element.setAttribute("class", "dummyClass")
