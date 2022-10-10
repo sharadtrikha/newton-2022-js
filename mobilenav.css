@@ -1,0 +1,13 @@
+.content {
+    display: block;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    color: red;
+
+}

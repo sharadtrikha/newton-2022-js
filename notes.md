@@ -744,17 +744,19 @@ with our html page.
 
 
 2. getElementsByClassName -> Input is <CLASSNAME> -> 
-Output is -> HTMLCollectionOf<Element>
+Output is -> HTMLCollectionOf<Element> (array of elements but not completely true)
 
 3. getElementsByTagName -> Input is <TAG_NAME> -> 
-Output is -> HTMLCollectionOf<Element>
+Output is -> HTMLCollectionOf<Element> (array of elements but not completely true)
 
 4. querySelector -> Input is <CSS_SELECTOR> -> Output is -> <Element> or null
 
 Note : querySelector always returns single element, if more than
 one element matchesm, then, element that comes first, will be returned by this method. (TOP to Bottom manner).
 
-5. querySelectorAll -> Input is <CSS_SELECTOR> -> Output is -> NodeListOf<Element> or null
+5. querySelectorAll -> Input is <CSS_SELECTOR> -> Output is -> NodeListOf<Element>
+(array of elements but not completely true)
+ or null
 
 All the above methods of document object are for -> 
 to get hold of particular html element.
