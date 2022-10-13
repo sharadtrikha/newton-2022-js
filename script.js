@@ -239,13 +239,22 @@ let obj = {
 // element.style.padding = "20px 10px 30px 40px";
 // h1Element.classList.remove("title");
 // h1Element.classList.toggle("title");
-const h1Element = document.querySelector("h1");
-h1Element.classList.add("title");
-h1Element.style.border = "10px solid red";
-const text = h1Element.innerText;
-console.log(text);
+// const h1Element = document.querySelector("h1");
+// h1Element.classList.add("title");
+// h1Element.style.border = "10px solid red";
+// const text = h1Element.innerText;
+// console.log(text);
 
-//h1Element.innerHTML = "<span>Hey im span</span>";
-h1Element.innerText = "Hi Sharad!";
-h1Element.setAttribute("id", "sharad");
-h1Element.setAttribute("class", "dummyClass")
+// //h1Element.innerHTML = "<span>Hey im span</span>";
+// h1Element.innerText = "Hi Sharad!";
+// h1Element.setAttribute("id", "sharad");
+// h1Element.setAttribute("class", "dummyClass")
+
+// const element = document.createElement("div");
+// element.innerText = "hi Created via JS";
+
+// const paraTag = document.querySelector("#dummy");
+// paraTag.appendChild(element);
+
+// Attach to HTML Page 
+

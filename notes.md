@@ -766,3 +766,45 @@ particular html elements.
 eg : ID selector (#<ID>), Class selector (.<CLASSNAME>),
 Tag selector (<TAG_NAME>).
 
+------------------------------------
+
+How To add/create HTML element via JS and ADD to HTML page ?
+
+
+
+------------------------------------
+
+
+Transform :
+
+Translate
+scale
+rotate
+
+------------------------------------
+
+Script tag -
+
+defer vs async 
+
+Defer suits in situations -> where javascript file is interacting with DOM
+async suits in situations -> where javascript file is not interacting with DOM INITIALLY.
+
+In Defer, there is a guarenttee of order of execution whereas in async there is no guarnttee
+
+
+-------
+
+Make a html form, input fields and submit button and on click of submit,
+display form data inside a table
+
+Call api, fetch data and show this data inside the table
+
+
+-------------
+
+Write recursive JS function which takes a JSON object and returns a deep copy of the object.
+
+--------------
+
+object.assign
