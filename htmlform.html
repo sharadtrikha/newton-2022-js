@@ -6,13 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="htmlform.js" defer></script>
 </head>
 
 <body>
     <form>
-        <input type="text" name="name" required />
+        <div>
+            <label>Enter Name : </label>
+            <input type="text" name="name" id="name" required value="newton" />
+        </div>
+
+        <div>
+            <label>Enter age : </label>
+            <input type="number" name="age" id="age" required />
+        </div>
+
+        <button type="button" id="submit" onclick="createTable()">Click me to render Table</button>
 
     </form>
+
+    <div id="dummy-placeholder"></div>
 
 </body>
 
