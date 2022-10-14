@@ -1,0 +1,22 @@
+* {
+    color: white;
+    font-size: 20px;
+}
+
+#grand_parent {
+    width: 50vw;
+    height: 50vh;
+    background-color: aqua;
+}
+
+#parent {
+    width: 25vw;
+    height: 25vh;
+    background-color: rebeccapurple;
+}
+
+#child1 {
+    width: 10vw;
+    height: 10vh;
+    background-color: darkgreen;
+}

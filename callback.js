@@ -53,3 +53,27 @@ function beautifyName4(name, prefix = "LORD", decorateFunction) {
     }
     return `${prefix} ${name}`;
 }
+
+
+const decorFunc = function(name) {
+    return `${name} is going to enjoy weekend and hope the same for you`;
+}
+
+
+const title4_v1 = beautifyName4("sharad");
+const title4_v2 = beautifyName4("sharad", "Newton - ");
+const title4_v3 = beautifyName4("Sharad", "", decorFunc);
+// Here on line no. 65 we are passing FUNCTION and we are allowed to do so in 
+// javascript since FUNCTIONS are treated as FIRST CLASS CITIZENS/members in JS.
+// i.e. FUNCTIONS should be treated as normal values/variables like 
+// boolean, object, array, number, etc.
+// that means functions can be passed as INPUT to any other function.
+// also, it can be RETURNED i.e. function can return function.
+// Here, decorFunc can be called as "CALLBACK FUNCTION".
+// WHY ? because decorFunc is not called directly rather it is being called by other function
+// Note : In above usecase, actual power of CALLBACK FUNCTION is not visible!
+// It is primarily used for Async......
+
+console.log(title4_v1); // LORD Sharad
+console.log(title4_v2); // Newton - Sharad
+console.log(title4_v3); // Sharad  is going to enjoy weekend and hope the same for you

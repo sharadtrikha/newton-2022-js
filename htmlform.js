@@ -1,13 +1,14 @@
-/// I want to talk to 3 stackholders -> input type for name and age and submit btn.
-// i.e. I should write 3 querySelectors or any DOM method via which i can talk to them
-// in order to talk -> I need to SELECT them 
-// in order to SELECT -> i need to write queries (querySelector, getElementByID, etc)
-
 // Selectors
 const nameElement = document.querySelector("#name"); // returns JS Object to play with...lets store that object in a variable
 const ageElement =  document.querySelector("#age");
 const submitElement = document.querySelector("#submit");
 const dummyPlaceholder = document.querySelector("#dummy-placeholder");
+
+/// I want to talk to 3 stackholders -> input type for name and age and submit btn.
+// i.e. I should write 3 querySelectors or any DOM method via which i can talk to them
+// in order to talk -> I need to SELECT them 
+// in order to SELECT -> i need to write queries (querySelector, getElementByID, etc)
+
 
 // Now on click of submit button, I need to make HTML Table
 // since onclick here is of submit button..lets go ahead and apply onClick event attribute
@@ -149,3 +150,34 @@ function createTable() {
     tableRow.appendChild(tableColumn);
     tableElement.appendChild(tableRow);
 }
+
+
+// submitElement.addEventListener("click", createTable);
+
+document.querySelector("#submit").addEventListener("click", function() {
+    const enteredName = nameElement.value;
+    const tableRow = document.createElement("tr");
+    const tableColumn = document.createElement("td");
+    tableColumn.innerText = enteredName;
+    tableRow.appendChild(tableColumn);
+    tableElement.appendChild(tableRow);
+})
+
+
+// addEventListener takes 2 arguments - EVENT_NAME and FUNCTION to be called 
+// whenever this event gets fired.
+// Previously we were calling createTable Function from html with the help of
+// onclick attribute. Now, we want to have separation of concerns and don't 
+// want to write JS inside html unless n untill required.
+// So we went with a approach of calling  addEventListener method on TARGET 
+// element
+// Here, second argument of addEventListener can be called as "CALLBACK FUNCTION"
+// Since we are not calling it directly...JS is internally calling it 
+
+
+
+// const random = document.querySelector("#random");
+// const randomFn = function(event) {
+//     console.log(event.target.value);
+// }
+// random.addEventListener("change", randomFn);
