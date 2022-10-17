@@ -854,10 +854,120 @@ TODO Questions for this week (17/10 - 21/10) : (in class)
 
 1. Word highlighter
 2. Array merger 
-3. 
+3. Search through the Bill (Group Contest: April '21)
+4. GRE Essay Tool
 
 Todo questions for (24/10 - 28/10)
 
 1. Bubble Sort visualizer
 2. Movie Booking JS
 3. 
+
+
+Object creation :
+
+new -> constructor function
+object literal -> " "
+new Object()
+
+
+Object.create -> 
+
+if you want to inherit some properties of existing object while creating new object
+
+
+var vegetable = { 
+    status: "Healthy"
+}
+
+// Parent
+
+now, lets create new TYPE of Vegetable called - brocolli.
+Since, brocolli is TYPE of Vegetable then it means should be inherit all the
+PROPERTIES of Vegetable ......
+
+This is somewhat tending towards INHERITANCE i.e. child inheriting properties of 
+parent.
+
+var brocolli = Object.create(vegetable);
+
+As soon as we did that, brocolli object got created but there is no property called "status" directly attached to brocolli.
+Then, there is one random object [[PROTOTYPE]]: Object inside which "status"
+property resides.
+
+Now, Whenever we use DOT operator to reference some property inside object.
+How Javascript behaves ?
+it behaves like ->
+First JS will check or look out for that property at TOP most level.
+Then, 
+IF found -> it returns value from there.
+If not found -> it continues its search in there [[PROTOTYPE]] : Object.
+
+By Default, whenever we create any object in Javasccript...this newly created
+object inherits some of the properties and methods from OBJECT
+
+
+
+var obj = {
+    name: "sharad",
+    age: 28
+}
+
+Object.keys(obj) -> [name,age]
+Object.values(obj) -> ["sharad", 28]
+Object.entries(obj) -> [["name", "sharad"], []];
+
+for..in ->
+Enumerable properties of object :
+
+Any object in JS that has properties. 
+Here, we can attach some behaviours (writable, enumerable) to these properties.
+Enumerable can be set to true or false on each PROPERTY of an OBJECT.
+
+var person = {
+    name: "sharad",
+    age: 28,
+}
+
+Now, we want to add 1 property to this object "person", but whenever any1 tries to
+iterate over this object...then...that property should not be visible during iteration
+
+
+Whenever we create properties of an object via literals, then, enumerable flag is automatically set to TRUE. i.e. these properties can be iterated over loops 
+like for..in and they are also present in OBject.keys.
+
+But if you want to explicitly change enumerable flag to false for some property
+of an object.
+It can be done with the help of ->
+Object.defineProperty()
+
+Syntax:
+
+Object.defineProperty(<OBJECT_WHERE_PROPERTY_NEEDS_TO_BE_DEFINED>, <KEY_NAME>, {
+    // descriptor i.e. 3rd arg. is an object that describes the value along with enumerable flag
+    <VALUE>: <WHATEVER_VALUE_YOU_WANT_TO_ASSIGN>,
+    <enumerable>: <BOOLEAN> if set to false -> this property won't be present during iteration of object and also, not present during Object.keys.
+})
+
+To check whether property is enumerable or not -->
+<OBJECT_NAME>.propertyIsEnumerable(<PROPERTY_NAME>)
+
+To check whether property is of own or Inherited --->
+
+<OBJECT_NAME>.hasOwnProperty(<PROPERTY_NAME>)
+
+
+for..in loop ->
+
+Iterates over ENUMERABLE STRING Properties only.
+
+var person = {
+    name: "",
+    age: "",
+    printMyName: function() {
+        //
+    }
+}
+
+now, from above we understand that iterating over name, age might make sense
+for some programming logic....why to waste 1 iteration over printmyName ?
