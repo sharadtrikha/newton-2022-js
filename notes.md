@@ -721,6 +721,7 @@ do..while
 
 for..in
 for..of
+forEach
 
 
 -----------------------------
@@ -792,19 +793,71 @@ async suits in situations -> where javascript file is not interacting with DOM I
 
 In Defer, there is a guarenttee of order of execution whereas in async there is no guarnttee
 
-
--------
-
-Make a html form, input fields and submit button and on click of submit,
-display form data inside a table
-
-Call api, fetch data and show this data inside the table
+---------------------------------------
 
 
--------------
+Call, bind, apply
 
-Write recursive JS function which takes a JSON object and returns a deep copy of the object.
+If we want to change CONTEXT of THIS variable inside methods.
+We can do that with the help of methods called - call(), apply(), bind()
 
---------------
+let obj = {
+    name: "Sharad",
+    age: 28,
+    printName: function() {
+        console.log(this.name);
+    }
+}
 
-object.assign
+// here, this points to obj object. 
+Now, we want "this" to point towards some other object.
+eg :
+
+let obj2 = {
+    name: "Trikha"
+}
+
+Basically we want "this" inside printName method of obj to point to "obj2" rather
+than "obj"
+
+obj.printName() -> this will point to obj
+but i want to perform some magic that it should start pointing to obj2
+
+
+Basically we want to change CONTEXT of this i.e. we want to change - where this is pointing to ?
+
+To do that, there 3 methods - call,apply,bind.
+
+call ->
+
+<FUNCTION>.call(<VARIABLE_THAT_YOU_WANT_THIS_TO_POINT_TOWARDS>, <INPUT1_for_the_called_function>, <INPUT2_for_the_called_function>,.........);
+
+apply -> 
+
+<FUNCTION>.apply(<VARIABLE_THAT_YOU_WANT_THIS_TO_POINT_TOWARDS>, ARRAY<INPUT1, INPUT2,...........>);
+
+
+Bind -> 
+
+Bind also changes context of this but its different from call and apply in the sense...that incase of bind...function is not executed immediately.
+
+Bind method -> returns a function with context of "this" changed.
+
+
+<FUNCTION>.bind(<VARIABLE_THAT_YOU_WANT_THIS_TO_POINT_TOWARDS>) 
+
+bind method returns new FUNCTION with new context of "this".
+i.e. we can call the function at a LATER STAGE whenever it is required.
+
+
+TODO Questions for this week (17/10 - 21/10) : (in class)
+
+1. Word highlighter
+2. Array merger 
+3. 
+
+Todo questions for (24/10 - 28/10)
+
+1. Bubble Sort visualizer
+2. Movie Booking JS
+3. 

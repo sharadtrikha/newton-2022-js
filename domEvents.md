@@ -47,3 +47,6 @@ then, it traverses back from TARGET to TOP.
 
 i.e. each DOM element is given 2 chances to execute their callback function -
 either during capture phase or During bubble phase
+
+Incase, we want to stop propagation of Events, we can use stopPropagation() method
+of event object.
