@@ -971,3 +971,191 @@ var person = {
 
 now, from above we understand that iterating over name, age might make sense
 for some programming logic....why to waste 1 iteration over printmyName ?
+
+
+
+PROTOTYPES :
+
+Every object in Javascript contains 1 property popularly known as "Prototype".
+"Prototype" property itself is an "OBJECT".
+
+Since "Prototype" property is available on every object in JS and in this "PROTOTYPE" property, (which is an object itself) contains certain properties/methods which can be used directly via DOT operator.
+
+By Default, whenever we create any object in Javasccript...this newly created
+object inherits some of the properties and methods from OBJECT
+
+----------->
+
+now, "Prototype" property of any object is referred by a key called "__proto__".
+__proto__ -> here, generally whenever "_" is prefixed on any property name, it signifies that 
+it is a internal property and it should NOT be used
+
+var obj = {
+    KEY: VALUE,
+    [[PROTOTYPE]]: OBJECT
+}
+
+[[PROTOTYPE]] -> __proto__
+
+Now, whenever we are accessing obj.__proto__ -> 
+We are getting OBJECT in return.
+this object is nothing but VALUE of PROTOTYPE OBJECT.
+
+Inheritance :
+
+Acquiring properties/behaviour from some other entity.
+In Javascript, it implies acquiring properties/methods of some object.
+
+var obj1 = {
+    name: "Sharad"
+}
+
+obj1 needs to have these methods by default :
+
+1. toString
+2. valueOf
+
+Now, in order to have these methods bydefault to every object created in Javascript,
+we make use of Prototype Inheritance.
+
+In Class based lang., Inheritance works differently.
+ie.
+class Parent {
+    // properties
+
+    // methods
+}
+
+
+class Child extends Parent {
+    // implement or overrides
+}
+
+Now, In javascript which is a "OBJECT BASED" language. Inheritance is done via Prototypes.
+i.e. All the properties/methods which are to be inherited are added to the "PROTOTYPE" property of the object.
+
+Function's Prototype :
+
+Every Function constructor in JS have one property called "prototype".
+
+
+
+How does Prototype inheritance implemented ?
+
+1 Wrong/discouraged way :
+
+Directly changing __proto__ property of object.
+
+let obj1 = {
+    title: "Sharad1"
+}
+
+let obj2 = {
+    title: "Sharad2"
+}
+
+obj2.__proto__ = obj1;
+
+2 Right ways :
+
+Using Object.create : 
+
+let obj1 = {
+    title: "sharad1"
+}
+
+let obj2 = Object.create(obj1);
+obj2.title = "Sharad2"
+
+
+eg :
+Lets create PARENT object called "person" and implement certain methods specific to a person.
+
+let person = {
+    
+    canWalk: function(){
+        console.log("Person can walk");
+    },
+    canTalk: function() {
+        console.log("Person can talk");
+    }
+}
+
+Now, lets create object representing specific person called "sharad". Now, since sharad is a "type" of
+PERSON. So, "sharad" would like to INHERIT properties/methods of PERSON. 
+
+let personSharad = Object.create(person);
+// Above line creates an empty object with "PROTOTYPE" property of this empty object set to/point to person object.
+
+personSharad.title = "sharad";
+
+
+Using Constructor Function :
+
+
+const Person = function(name) {
+
+    this.title = name;
+    this.canWalk = function() {
+        console.log("Person can walk");
+    };
+    this.canTalk = function() {
+        console.log("Person can talk");
+    }
+}
+
+const p1 = new Person("sharad");
+
+Here, everything we wanted to achieve is done.
+Also, it looks like there is no need of inheritance.
+But there is a issue here :
+
+Whenever object gets created via "new" keyowrd...
+All the properties inside Object gets memory allocated.
+Here, properties can be of type - number, boolean, object, functions...etc
+But issue here is...
+Common Behaviours/methods like canTalk, canWalk are given MEMORY on each object INSTANTIATION.
+
+To mitigate that, we can make use of "prototype" property of Function constructor.
+i.e. All the functionality/methods/properties which are common to every instance can be put inside
+"prototype" property.
+
+example: 
+
+
+const Person = function(name) {
+    this.title = name;
+}
+
+
+Person.prototype.canWalk = function() {
+     console.log("Person can walk");
+}
+
+Person.prototype.canTalk = function() {
+        console.log("Person can talk");
+}
+------------------
+
+conclusion :
+
+Object.create(<WHATEVER_YOU_WANT_NEW_OBJECT_PROTOTYPE_TO_POINT_TO>)
+
+<FUNCTION_CONSTRUCTOR_NAME>.prototype.<KEY> = <WHATEVER_YOU_WANT_NEW_OBJECT_PROTOTYPE_TO_POINT_TO>
+
+Confusion creating terms :
+
+__proto__
+prototype
+[[PROTOTYPE]]
+
+Confusion creating statements :
+
+Object.prototype equal to obj.__proto__
+
+Prototype Chain ->
+
+Every object have one property called "Prototype".
+This property is itself an object, thereby, again having property called "PROTOTYPE".....
+this goes on...till the value of "PROTOTYPE" is null.
+This chain of PROTOTYPES..is nothing but "Prototype Chain".
