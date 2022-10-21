@@ -854,8 +854,8 @@ TODO Questions for this week (17/10 - 21/10) : (in class)
 
 1. Word highlighter
 2. Array merger 
-3. Search through the Bill (Group Contest: April '21)
-4. GRE Essay Tool
+3. Search through the Bill (Group Contest: April '21) - ????
+4. GRE Essay Tool - done
 
 Todo questions for (24/10 - 28/10)
 
@@ -1159,3 +1159,386 @@ Every object have one property called "Prototype".
 This property is itself an object, thereby, again having property called "PROTOTYPE".....
 this goes on...till the value of "PROTOTYPE" is null.
 This chain of PROTOTYPES..is nothing but "Prototype Chain".
+
+
+--------------------------------------------------------------
+
+Javascript String :
+
+In JS, String can act as primitive as well as Object.
+Largely, convention is if string is created with Literals, it act as primitive.
+If created with new String() -> then it acts as Object.(non-primitive).
+
+Whenever we use DOT Operator on string primitive, we are still able to access properties/methods -> because In javascript, coercion happens i.e. implict 
+type conversion happens due to which String Primitive is converted to String Object.
+
+Property :
+
+1. length property :
+In string, we have length property avaiable to us which counts number of characters
+in a string and returns that number....
+Note: This is not exactly true
+
+Methods :
+
+1. Retrieving specific character via index :
+
+string[index]
+
+2. Test if string contains substring or not :
+
+
+i want to check whether str2 exists inside str1 or not 
+let str1 = "Hello world";
+let str2 = "Hello";
+
+-> <PARENT_STRING>.includes(<SUBSTRING_YOU_WANT_TO_SEARCH>) -> returns boolean value
+true -> if substring is present in parent string
+false -> if not present
+
+-> endsWith()->  return boolean value (true if present, false if absent)
+-> startsWith() ->  return boolean value (true if present, false if absent)
+All of them are CASE SENSITIVE.
+
+
+Find position of Substring in string :
+
+indexOf() -> returns index from where substring starts..
+If not found..it returns -1.
+
+
+Extracting substring :
+
+slice(<START_INDEX>, <END_INDEX>) ->
+
+If <END_INDEX> is not given, then, it will return whole string starting from <START_INDEX>.
+
+Here, 
+<START_INDEX> -> Character at start_index is included whereas
+<END_INDEX> -> Character at end_index is excluded
+
+
+Changing case :
+
+toUpperCase()
+toLowerCase()
+
+Update some parts of a string :
+
+replace(<SEARCH_VALUE>, <STRING_TO_BE_REPLACED_WITH>) -> returns new string
+
+
+Method Chaining : 
+
+let str1 = "Hello world. World is so awesome.";
+str1.toLowerCase().replaceAll("world", "Sharad");
+
+Above line is calling 2 methods -
+1. toLowerCase()
+2. replaceAll()
+
+One way to write it as :
+let str2 = str1.toLowerCase();
+let str3 = str2.replaceAll("world", "Sharad");
+
+But this can be done in a shorter syntax without declaring too many variables :
+
+str1.toLowerCase().replaceAll("world", "Sharad");
+
+Trim :
+
+Remove whitespace from the start n end.
+.trim()
+
+charAt and charCodeAt
+
+Conversion of STRING to ARRAY :
+
+let str1 = "Hello world";
+we need to convert to Array ["Hello", "World"].
+
+-> split() method :
+
+it takes input 1 RegEx or matching expression and based on it SPLITS characters into
+array.
+
+
+-----------------------
+
+ARRAYS :
+
+const arr = new Array();
+const arr = [1,2,3];
+
+CONVERT ARRAY to STRING :
+
+join(<SEPARATOR>) -> returns String
+
+Search Index of an element of array :
+
+indexOf(<ARRAY_ELEMENT_TO_BE_SEARCHED>)
+if found returns index of that element otherwise -1
+
+Check whether element exist or not :
+
+.includes(ARRAY_ELEMENT_TO_BE_SEARCHED) -> returns boolean
+
+Add element To the end of Array:
+
+.push(<ARRAY_ELEMENT_TO_BE_ADDED>)
+
+Add Element to The begining of Array :
+.unshift(<ARRAY_ELEMENT_TO_BE_ADDED>)
+
+
+Remove element from the end of Array :
+
+.pop() -> Returns removed element
+
+Remove element from the start of array :
+
+.shift() -> Returns removed element
+
+
+-----------------------
+
+Deleting elements of an array and also, modify the existing array
+Syntax: 
+.splice(start_index, delete_count, add_item1, add_item2,..........)
+
+here, start_index is INCLUDED
+
+Returns :
+
+All the removed elements in an array
+
+Simplest form :
+
+.splice(start_index)
+
+
+
+eg :
+let arr = ["sharad", "newton", "placement", "java", "js", "css"];
+I want to remove all the elements after "sharad" :
+
+arr.splice(1) ->
+
+Important point here is..that it changes (OR MUTATES) the existing array itself.
+
+
+Now, 
+I want to remove elements from 1st index and only want to delete 2 elements from there and at the sametime, I want to ADD 2 new elements to this array.
+
+eg :
+let arr = ["sharad", "newton", "placement", "java", "js", "css"];
+arr.splice(1,2, "random1", "random2");
+
+
+-------------------------------------
+
+Higher Order Functions ?
+
+function abc(def) {
+    def()
+};
+
+here, what is abc and what is def ?
+abc -> Higher order function i.e. if a function accepts any function as input or 
+        returns function ... then...that function is termed as higher order function.
+
+def -> callback Function -> function that might not be called immediately (implicitly) or any function which is called inside a function (not invoked explicitly).
+
+
+------------------------------------
+
+Iterate 
+
+forEach loop :
+
+Invokes a callback for every element in an array.
+
+const arr = [10,20,30,40,50];
+
+arr.forEach(<CALLBACK_FUNCTION>)
+where <CALLBACK_FUNCTION> will be executed for every element in an array.
+This <CALLBACK_FUNCTION> is supplied with certain inputs like -
+current_element of array, index, array.
+
+----------------------------------------
+
+Sorting Array :
+
+const arr = ["newton", "gryfinndor", "placement", "sureshot"];
+
+Sort array based on Alphabets:
+
+arr.sort() -> Returns SORTED ARRAY and also, it changes the SOURCE ARRAY
+on which it was used i.e. it MUTATES original array
+
+It works well on array of strings since internally ASCII are compared.
+Note :
+Incase, to avoid Capitalization issues either convert to lowercase or uppercase.
+
+
+But it does not work well incase of numbers.
+eg - const arr = [22,222, 2222, 99];
+
+Becuase internally, these numbers are converted to Strings and then, these are compared and since Strings are compared based on aSCII value.
+Such problem arise!
+
+To fix this, we can give own implementation of compare function.
+i.e. sort method accepts callback function as argument that can help sort the elements of an array.
+
+
+
+arr.sort(<CALLBACK_FUNCTION>)
+
+<CALLBACK_FUNCTION> gets 2 elements as arguments. These elements are elements of array only.
+
+RETURN VALUE :
+
+<CALLBACK_FUNCTION> can return 3 values :-
+
+a-b -> Here, a represents first value and b -> second value
+
+if first_value - second_value is negative -> then, it means first_value was smaller
+
+1. NEGATIVE : if it is negative, then, a is sorted before b
+2. POSITIVE
+
+function compare(a,b) {
+    return a-b;
+}
+
+Code trace :
+
+const arr = [22,222,99];
+function compare(a,b) {
+    console.log(`compare ${a} with ${b}`)
+    return a-b;
+}
+
+1st iteration :
+
+compare -> 22, 222
+
+22 - 222 -> NEGATIVE
+
+means ______________ first value was smaller -> Don't swap...
+
+
+2nd iteration :
+
+compare -> 222, 99
+
+222 - 99 -> POSITIVe
+
+means _____________ first value was larger -> Swap..
+99,222
+
+
+->
+22,99,222
+
+
+----------------------------------------------------
+
+Merge Array :
+
+concat Method -
+
+<ARRAY1>.concat(<ARRAY2>)
+
+
+
+-----------------------------------------------------
+
+filter, map, reduce :
+
+
+Higher order functions
+Callback functions
+
+Here, filter, map, reduce are higher order functions.
+All 3 of them, take callback function as input.
+Like all the methods, these methods are also chainable.
+
+filter :
+
+filter method as the name suggest is used to filter elements of an array
+based on some CONDITION (that means based on boolean value).
+
+const arr = [10,20,40,500,1000];
+
+
+Requirement :
+Filter out/Remove all the elements whose value is greater than 100 from above array.
+
+INPUT - [10,20,40,500,1000]
+OUTPUT - [10,20,40]
+
+arr.filter(<CALLBACK_FUNC>)
+
+Here, <CALLBACK_FUNC> needs to return true or false...
+BASED on that, element will be added or removed.
+
+RETURN Type :
+filter() method returns new array of elements (which satisfy the condition written
+ inside callback function)
+
+--------------------
+
+map :
+
+It is used to alter/change elements of an array.
+
+eg :
+
+const arr = [10,20,30];
+
+Requirement :
+
+Multiply every element by 2 and store it in a new array.
+
+
+----------------------
+
+const arr = [10,20,30,40,50,200,300,400,500];
+
+Requirement :
+
+FILTER array only having elements having value less than 100 AND
+After that, multiply remaining elements by 3 ....
+Finally return the new array.
+
+arr.filter(function(elem) {
+    return elem < 100
+}).map(function(element) {
+    return element * 3
+})
+
+
+
+------------------------
+
+reduce() method :
+
+It is used whenever we want to iterate over array but need to conclude in a single value.
+
+eg :
+const arr = [20,30,40,50];
+
+Req: 
+Sum of all elements ?
+
+Syntax :
+
+arr.reduce(<CALLBACK>, <INITIAL_VALUE>);
+
+Here <CALLBACK> gets 2 important inputs..these are different from callbacks of 
+forEach, map, filter.
+Here, 1st input is generally termed as ACCUMULATOR.
+2nd input is termed as CURRENT_VALUE (is the element value we get on each iteration i.e. it is same as 1st argument of callbacks of filter,map)
+
+If <INITIAL_VALUE> is not set, then, it assigns first element of array into ACCUMULATOR and starts looping from 1st index of array and CURRENT_VALUE is assigned as arr[1]
