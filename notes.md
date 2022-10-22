@@ -1542,3 +1542,69 @@ Here, 1st input is generally termed as ACCUMULATOR.
 2nd input is termed as CURRENT_VALUE (is the element value we get on each iteration i.e. it is same as 1st argument of callbacks of filter,map)
 
 If <INITIAL_VALUE> is not set, then, it assigns first element of array into ACCUMULATOR and starts looping from 1st index of array and CURRENT_VALUE is assigned as arr[1]
+
+--------------------------------------
+
+const arr = [10,20,30,50,70]
+
+Requirement:
+We need to check whether ALL the elements of array are less than 60 or not ?
+
+So basically, we need a BOOLEAN output.
+
+.every() method can be used here since we need to Check ALL the elements of array.
+
+------------------------------------
+
+Requirement:
+We need to check whether SOME the elements of array are less than 60 or not ?
+
+.some() method can be used here since we need to check SOME of the elements of array.
+
+-------------------------------------
+
+Finding element in an array :
+
+find() method can be used ... pass callback function to find() method 
+and it will return ONLY one element as soon as condition inside callback is met.
+
+--------------------------------------
+
+Scope :
+
+defines Whether any variable is accessible or not 
+
+function abc() {
+    var dummy;
+}
+
+console.log(dummy)
+
+-> I will not be able to find dummy variable outside function abc since scope or 
+visibility of dummy variable in function scoped i.e. it is only available inside 
+abc function
+
+
+-------------------------------------
+
+Execution Context and Lexical Environment :
+
+Whenever function call/invocation happens, execution context is created and it is pushed to a stack.
+and Then, once function is executed, then, execution context is removed from the
+stack.
+
+Now, along with creation of execution context....there is one more thing that gets
+created at the same time and we call it Lexical environment.
+
+
+var title = "sharad";
+
+function printDetails() {
+    var age = 28;
+    console.log(title);
+    
+    printMyAge();
+    function printMyAge() {
+        console.log(age);
+    }
+}
