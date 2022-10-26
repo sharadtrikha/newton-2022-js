@@ -854,7 +854,7 @@ TODO Questions for this week (17/10 - 21/10) : (in class)
 
 1. Word highlighter
 2. Array merger 
-3. Search through the Bill (Group Contest: April '21) - ????
+3. Search through the Bill - done (26th oct)
 4. GRE Essay Tool - done
 
 Todo questions for (24/10 - 28/10)
@@ -1608,3 +1608,14 @@ function printDetails() {
         console.log(age);
     }
 }
+
+------------------------------------
+
+Object Oriented Javascript :
+(OOJS)
+
+1. Procedural paradigm
+2. Object Oriented Paradigm 
+
+These paradigms enforce way of writing code .
+
