@@ -1619,3 +1619,155 @@ Object Oriented Javascript :
 
 These paradigms enforce way of writing code .
 
+--------------------------------------
+
+Destructuring :
+
+Array :
+
+const arr = ["sharad", "akshay", "akash", "paul"]
+
+Requirement :
+Want to get firstElement and secondElement of arr.
+
+const firstElement = arr[0];
+const secondElement = arr[1];
+
+Same thing can be achieved with a different way/syntax :
+
+const [firstElement, secondElement] = arr;
+
+here arr[0] -> firstElement
+    arr[1] -> secondElement...
+
+
+
+Above line depicts that ->
+Here, [] brackets are used because we are working with array.
+Take first element of arr and assign it to a const variable called firstElement.
+Take second element of arr and assign it to a const variable called secondElement.
+
+Now, lets say we want third element of arr to be stored in a variable called "third".
+What will be the changes required in above syntax ?
+
+let [firstElement, secondElement, third] = arr;
+
+
+Object :
+
+const person = {
+    name: "Sharad",
+    age: 28,
+    work: "instructor"
+}
+
+const firstElement = person.name;
+const secondElement = person.age;
+
+Same thing can be achieved with a different way/syntax :
+
+const { name, age } = person;
+
+Above line depicts that ->
+
+Initialize a const variable called "name" and then,
+Search for a property called "name" inside person object and return its value to this
+new variable called "name".
+
+Now, 
+there are some difference w.r.t destruct array vs destruct object :
+
+1. [] vs {}
+2. Here, during array destruct..variable name can be anything and ALWAYS order is   maintained i.e. first variable will always get value present in arr[0]..second variable will always get value present in arr[1]....so on.....
+
+But during object destruct...variable names need to be same as name of the keys inside the object.Now, this might appear as a flaw..if we want to create variables
+with a different name (i.e. name other than what is present inside Object's key)
+
+syntax :
+const { OBJECT_KEY:ANY_VARIABLE_NAME } = OBJECT;
+
+Important Usecase w.r.t functions :
+
+Lets say I write a function that prints firstName.
+
+function printFirstName(firstName) {
+    console.log(`Hello. My name is ${firstName}`);
+}
+
+
+Now, can we make above syntax simpler for the consumers ?
+
+function printFirstName({firstName}) {
+    console.log(`Hello. My name is ${firstName}`);
+}
+
+Now, anyone can send full objects...but our method will ONLY extract firstName property of that object...
+-----
+
+Default value 
+---------------------------------------------------
+
+REST Operator (...) :
+
+Combine multiple elements into one. (array, object)
+
+Usecase :
+const arr = ["sharad", "akshay", "akash", "paul"]
+
+I want first 2 elements of arr in variables called "firstElement" and "secondElement"
+and rest of the remaining elements should be saved inside a variable called "leftOver"..This "leftOver" variable should be ARRAY
+
+Rest operator also works with Objects.
+
+usecase :
+Design function that can accept unlimited arguments as inputs.
+
+Soln:
+
+function fn(...variableName) {
+    // here variableName will club all the inputs into array and then, 
+    that array can be used for all the logical work to be done inside fn
+}
+
+------------------------------------------------------
+
+
+Spread Operator (...) :
+
+SPREAD is opposite of REST. Although, ... is represented for Spread operator also.
+One unit (iterable - array,object) is spread into multiple units.
+
+-----------------------------------------------------
+
+Short circuit evaluation :
+
+function hello() {
+    console.log("Hello world");
+}
+
+hello()
+
+
+---------
+
+Optional chaining :
+
+const person = {
+    name: "Sharad"
+}
+
+person.xyz -> undefined
+person.xyz.qwerty -> not defined/error
+
+person.xyz?.qwerty ----> Saves you from error rather returns undefined
+
+
+-------
+
+null Coalescing:
+(??)
+
+const age = null ?? 28;
+
+IT operates on 2 operands...Here, if operand on the left side is NULL/UNDEFINED,
+then, it returns value on the right side (i.e 28) ..but if left side is not NULL/UNDEFINED, then, value on the left side is returned..

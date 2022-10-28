@@ -137,3 +137,39 @@ I don't to expose age of person since it is highly confidential info.
 // Req. :
 I'm not allowed to access name and age variables directly..
 But i'm allowed to print them via print() method
+
+4. Polymorphism :
+
+Poly -> multiple
+morphism -> forms
+
+one name -- many form...
+
+How to implement in JS ?
+
+function Fruit() {}
+
+Fruit.prototype.displayName = function() {
+    console.log("Hey I am fruit");
+}
+
+---Lets create subclass/child class----
+
+function Apple() {}
+Apple.prototype = Object.create(Fruit.prototype);
+
+Requirement :
+Now, any instance created via Apple constructor function and whenever we call
+displayName() method..then...it should print "Hey.I am apple" instead of 
+"Hey I am fruit"...
+ie. Apple (subclass or entity which inherits parent entity called Fruit) should
+override this method displayName().
+
+Apple.prototype.displayName = function() {
+    console.log("Hey. I am apple");
+}
+
+console.log(1+1) //2
+console.log(1+"1") // 11
+
+
