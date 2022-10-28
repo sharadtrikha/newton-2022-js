@@ -1771,3 +1771,113 @@ const age = null ?? 28;
 
 IT operates on 2 operands...Here, if operand on the left side is NULL/UNDEFINED,
 then, it returns value on the right side (i.e 28) ..but if left side is not NULL/UNDEFINED, then, value on the left side is returned..
+
+
+----------------------------------
+
+Factory Function :
+
+const car1 = {
+    model: "Creta",
+    year: 2022,
+    color: "white",
+    variant: "SX",
+    canMove: function() {
+        console.log("Car is moving....");
+    }
+}
+
+const car2 = {
+    model: "i20",
+    year: 2021,
+    color: "White",
+    variant: "S",
+    canMove: function() {
+        console.log("Car is moving...");
+    }
+}
+
+
+function Car(model,year,color,variant) {
+    this.model = model;
+    this.year = year;
+    this.color = color;
+}
+
+new Car("", "", "")
+
+Till now, we have studied making new objects via Constructor Function with the help of new Keyword.
+
+There is one more way of creating objects without new keyword with the help of 
+simple functions.
+
+function Car(model,year,color,variant) {
+    return {
+        model,
+        year,
+        color,
+        variant,
+        canMove: function() {
+            console.log("Car is moving ....");
+        }
+    }
+}
+
+
+const car1 = Car("Creta","2022", "White", "SX");
+
+
+-----------
+
+Cloning an object :
+
+Using spread operator :
+
+let obj1 = {age: 28}
+let obj2 = {...obj1}
+
+But here it appears that clone is successful
+i.e. deep clone is performed but in reality it is still swallow clone.
+...but it is only till first level in hierarchy
+i.e. if there are any nested objects inside a object..then these nested objects
+are swallow copied...
+
+Using Object.assign() :
+Syntax :
+
+Object.assign(<TARGET_OBJECT>, <SORUCE1>, <SOURCE2>,....<SOURCE_N>);
+
+Takes all the properties present in all <SOURCES> and copy them inside <TARGET_OBJECT> and then, Returns <TARGET_OBJECT>
+let obj1 = {
+    age: 28
+}
+
+Object.assign({}, obj1);
+
+Same problem remains with Object.assign also. ->
+But here it appears that clone is successful
+i.e. deep clone is performed but in reality it is still swallow clone.
+...but it is only till first level in hierarchy
+i.e. if there are any nested objects inside a object..then these nested objects
+are swallow copied...
+
+
+JSON.parse(JSON.stringify()) -> This will do deep cloning but it is not the
+    recommended method to do it..since it is not performant and highly discouraged.
+
+-------------------------------------------------------
+
+Inheritance :
+
+how to implement inheritance ?
+
+Usecase :
+Parent class called PERSON which needs to be initialized with certain properties
+like name and age.
+
+There is a child class called EMPLOYEE (which is a PERSON too!) and it needs to be
+initialized with properties like name, age and employmentType.
+
+How can we model it in Javascript ?
+
+Refer functional_class.js
