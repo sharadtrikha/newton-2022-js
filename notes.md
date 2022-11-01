@@ -1881,3 +1881,212 @@ initialized with properties like name, age and employmentType.
 How can we model it in Javascript ?
 
 Refer functional_class.js
+
+-------------------------------------------------------
+
+Function arguments :
+
+Built in object passed to every function (whenever it is invoked).
+It is an object which looks like an array 
+i.e. arr[0] ,arr[1] --> Index can be used to refer data.
+It has .length property also.
+But it is not exactly array...i.e. we cannot use array methods like push, pop, etc..
+
+function sum() {
+    console.log(`First argument : ${arguments[0]}`);
+    console.log(`Second argument : ${arguments[1]}`);
+    return arguments[0] + arguments[1];
+}
+
+sum(20,30)
+
+
+// Write a function to sum N elements.
+
+sum(2,3,4,5) 
+sum(45,6495,305,205,385)
+
+One approach ->
+
+use Arguments object 
+Iterate over it and add these values
+
+------------------------------------
+
+Arrow Functions (es6) :
+
+Till now, we are used to writing these syntaxes like functions :
+
+const func = function() {} // function expression
+
+function func() {} // function declaration
+
+Now, there is one more syntax for functions ----->
+
+Type 1:
+function sum(a,b) {
+    return a + b;
+}
+
+Type 2:
+const sum = function(a,b) {
+    return a +b;
+}
+
+Type 3:
+const sum = (a,b) => {
+    return a + b;
+}
+
+Observations 
+1. function keyword was removed
+2. => got introducted before { bracket
+
+Shorthands :
+If only 1 argument is required, then, no need of brackets
+eg:
+const addBy2 = a => {
+    return a + 2;
+}
+
+If only 1 statement/expression is to be executed, then, {} and return keyword is also
+not required.
+
+const addBy2 = a => a + 2;
+
+
+When to use Arrow function vs when not to use ?
+
+In incase of normal functions, value of this is decided by who is calling that
+function. (i.e. binding is created).
+
+But incase of arrow functions, no binding of this is created....
+rather it will THIS of nearest element... 
+(most of the time in interviews, it will be window)
+
+When not use to Arrow functions:
+
+1. If inside these functions, THIS keyword is used. (not a hard requirment, if possible avoid)
+2. If we want to create constructor functions, arrow function cannot be used
+3. constructors methods/functions cannot be arrow functions.
+4. Arrow functions do not have arguments object.
+5. Cannot use bind,call,apply -> Since New binding of this cannot be created by arrow functions
+6. super keyword is not present in arrow functions
+
+---------------------
+
+try/catch :
+
+Whenever there is a error in js code, then, js THROWS Error and all the code written 
+after that line will not run.
+
+When we do not Handle errors by ourself, then, browser has to handle it...
+But browser's way of handling errors is not too great (since it stops all the code execution)
+
+Therefore, there is a need for developers to handle errors by themself.
+
+try {
+    // put all the code WHERE ERROR is anticipated inside try block 
+}
+
+Now, as soon as we place try block we get a error saying :
+Uncaught SyntaxError: Missing catch or finally after try 
+
+Basically, it means if try keyword is used, then, EITHER catch keyword OR finally keyword needs to be used...
+(note: BOTH (catch and finally) can also be used together with try)
+
+catch block :
+
+Only runs/executes, when some error happens inside its try block.
+any Error that happens inside TRY block will be CATCHED by this catch block
+
+If Error happens inside try block, then, code execution shifts to its corresponding
+catch block.
+Also, after catch block finish running..code execution does not go back to try block(from where it left)...rather it starts executing lines written after catch block.
+Used to handle errors.
+
+catch block -> gets 1 argument (Error object) by default..
+Error object ->
+1. name key - name of the error
+2. message key - message w.r.t error
+3. stack key - stacktrace i.e. from where/which line this error came from
+
+finally block :
+
+This block is ALWAYS executed whenever there is some ERROR or NO ERROR inside try block..
+
+Whenever any ERROR occurs inside try block, then, there are following possibilities of code execution/flow :
+
+1. Either it will jump to catch block(if implemented)
+2. Or it will jump to catch block (if implemented) and after executing catch block....it will start executing its finally block (if implemented).
+3. OR if catch block is not implemented, but finally block is implemented...
+then it will execute finally block.
+
+
+eg :
+
+Talk to database, fetch name n age n show it on UI.
+
+Pseudo code for the same :
+
+try {
+    // establish connection with database
+}
+catch {
+    // run this code incase name n age was not present in DB
+}
+finally {
+    // run any clean up code. In this example, it can be closing the connection with database
+}
+
+
+How to error by our own ?
+(Custom errors)
+
+eg: 
+const sum = (a,b) => {
+    return a+b;
+}
+
+I want to THROW error if sum is more than 10
+
+Concept of ReThrow :
+
+We write catch blocks to handle errors coming from its try block...
+But when we Errors implicitly/explicitly from try block...
+we want to only catch CERTAIN kind of ERRORs.
+
+eg :
+In above example, inside catch block only handle error which is of type "ReferenceError"..Apart from that, if any other error happens, then, re-throw error from catch block...
+
+Errors like :
+
+SyntaxError
+ReferenceError
+
+---------------------------------
+
+Currying :
+
+----------------------------------
+
+Async Javascript :
+
+
+Timers and Intervals :- 
+
+question:
+Create a Timer i.e. 
+Create 2 buttons - Start n Stop.
+On click of Start, timer should start with value 1 and on every 1 second, 
+it should increment value by 1...
+On click of Stop, timer should stop.
+
+1. setInterval
+2. clearInterval
+
+
+3. setTimeout
+4. clearTimeout
+
+
