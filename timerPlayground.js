@@ -27,3 +27,25 @@
 //     i++;
 //     console.log(i);
 // }
+
+while(true) {
+    console.log("hello");
+}
+
+const btn = document.querySelector("#trail-btn");
+btn.addEventListener("click", (event) => {
+    console.log("I got clicked....");
+})
+
+
+
+function sum(a,b) {
+    return a + b;
+}
+
+function main(cb) {
+    // does some heavylifting and after that invokes callback
+    cb();
+}
+
+main()
