@@ -2090,3 +2090,5 @@ On click of Stop, timer should stop.
 4. clearTimeout
 
 
+--------------------------------------
+
