@@ -27,3 +27,27 @@ Therefore, there is a conclusion that can be made --->
 Any synchronous piece of code will always be executed first, since it directly goes into EXECUTION STACK...But Callbacks related to Timers will sit inside Callback Queue and wait for Execution stack to be empty.
 
 
+JS Engine :
+Program where JS Executes.
+Primarily compose of 2 things :
+
+1. Heap (for storing objects)
+2. Stack (Execution stack where JS functions executes)
+
+JS Runtime Environment :
+
+JS ENGINE + WEB API's
+
+Event loop :
+
+Concurrency model within JS
+
+In this JS Runtime Enviroment, we have :
+
+1. Callback queue (callbacks coming from Timers)
+2. Microtask Queue (callback coming from Promise)
+
+Now, there is a priority amongst them...
+i.e. if Execution Stack is empty and callback function is to be picked...
+then..callbacks inside Microtask queue is given priority over callbacks inside
+callback queue.
