@@ -2092,3 +2092,122 @@ On click of Stop, timer should stop.
 
 --------------------------------------
 
+BOM : 
+(Browser Object model) 
+
+DOM (Document object model) : use to interact with html in the form of JS Object (hierarchical manner)...
+
+Now, there is a way via which we can talk to Browser. (here, entity is Browser not document~html page)
+
+BOM consists of JS Objects like :
+
+1. alert
+2. prompt
+3. confirm
+4. location
+5. navigator
+6. history
+7. screen
+
+Now, all these objects are a part of window object.
+In window object, there is something called "document"..via basically 
+enables DOM 
+
+alert :
+
+It is used to Alert user about something.
+Whenever alert method is called..at that point..rest of the Javascript code
+execution stops...
+Only after acknowledgement of Alert ...js execution begins again..
+It returns undefined..
+
+
+-------------------
+
+prompt :
+
+Gives us option to write some message and also ability to answer to it..
+if OK is pressed...input answer is returned otherwise on cancel click..
+null is returned..
+Execution of JS stops..till OK or CANCEL is pressed.
+
+-------------------
+
+confirm :
+
+Acts as a confirmation box...if clicked on OK it returns true and if clicked on
+CANCEL it returns false.
+
+-------------------
+
+location :
+
+Can be used to access browser URL i.e. location mentioned inside browser address bar.
+
+http://localhost:5500/bom.html
+
+location.search ->
+
+Returns path (in string form) of Query params..
+eg : URL -> http://localhost:5500/bom.html?id=123&name=sharad#demo
+location.search -> '?id=123&name=sharad'
+
+Now, to read above data we need to perform multiple transformation on string.
+Rather than doing that, we can make use of URLSearchParams...
+
+------------------------------------------------
+Currying :
+
+Design a function that adds 2 values.
+
+function add(value1, value2) {
+    return value1 + value2;
+}
+
+Design function that add a value but always with 4;
+
+function add4(value1) {
+    return value1 + 4;
+}
+
+Design unlimited functions with above problem i.e. 
+generate function that can add any number..
+
+Ideally it appears to be a problem of factory function....
+
+function generator(valueToBeAdded) {
+    return function(actualValue) {
+        return valueToBeAdded + actualValue;
+    }
+}
+
+const addBy2 = generator(2);
+
+addBy2(20); // 22
+
+-> generator(2)(20) // 22
+
+addBy2(30); // 32
+
+ -> generator(2)(30) // 32
+
+const addBy4 = generator(4);
+
+addBy4(20); // 24
+
+    -> generator(4)(20) // 24
+addBy4(30); // 34
+
+
+In above scenario, internally we are using closures.
+But same problem can be solved with .bind method also...
+
+
+multiply(1)(2) -> 2
+
+multiply(1)(2)(3) -> 6
+
+
+multiply(1)(2)(3)(4) -> 24
+
+multiply(1)(2)(3)(4)....(n)
