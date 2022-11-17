@@ -2211,3 +2211,105 @@ multiply(1)(2)(3) -> 6
 multiply(1)(2)(3)(4) -> 24
 
 multiply(1)(2)(3)(4)....(n)
+
+------------------------------------------
+
+
+memoization ->
+
+function memo(factoryName) {
+
+    // does large calculation which take 2 seconds 
+
+}
+
+Now, 
+everytime if we call memo() ...it will take 2 seconds everytime.
+Better approach can be if memo() is called with same input value
+,then, just return same output which was given before
+WITHOUT CALCULATING AGAIN.
+
+
+function func(name) {
+    return `${name} Trikha`; // assume it takes 2 seconds to do this
+}
+
+let storeResults = {};
+function memo(factoryName) {
+
+    if(storeResults[factoryName]) {
+        return storeResults[factoryName];
+    }
+
+    
+    const result = func(factoryName);
+    storeResults[factoryName] = result;
+    return result;
+
+}
+
+
+---------------------------------------------------
+
+multiply(1,2) -> 2 (1*2)
+multiple(2,3) -> 6 (2*3)
+
+multiply(1)(2) -> 2 
+
+----------------------------------------------------
+
+Generators :
+
+Functions in which we stop/resume their execution.
+
+Generator functions returns object having several properties.
+
+1. next() -> Whenever we call next() method...execution of code written
+inside generator function starts.......
+Execution of code can STOP if yield keyword is written in between...
+
+As soon as yield keyword is encountered..execution stops and there is a value
+given as output ... this value is given via yield keyword.
+
+next() method returns object having 2 properties :
+1. value
+2. done
+
+here, value property holds value given via yield keyword.
+
+done -> boolean value telling whether execution of generator function is completed or not
+
+
+-----------------------------------------------
+
+
+Date 
+
+Iso8601 (for standardization)
+epoch (backend systems generally work with epoch)
+
+
+----------
+
+Property descriptors :
+
+Every property in any object in JS can have its own configurations :
+
+const obj = {
+    name: "sharad",
+    age: 28
+}
+
+name, age can have its own custom configurations :
+
+1. writable -> true/false (depicts whether any value can be overriden or not)
+
+2. enumerable -> (depicts whether this property should be present while looping or not). eg : Object.keys(obj)
+3. configurable -> whether above configurations like writable, enumerable can be change in future or not.
+
+
+-------------
+
+1. "use strict"
+
+2. Callback Hell
